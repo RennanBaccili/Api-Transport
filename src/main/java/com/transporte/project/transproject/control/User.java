@@ -1,11 +1,14 @@
 package com.transporte.project.transproject.control;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,6 +24,11 @@ public class User implements Serializable{
 	private String phone;
 	private String password;
 	private String cep;
+	
+	//lista de ordens de serviço
+	//relação um para muitos
+	@OneToMany(mappedBy = "client")
+	private List<Order> order = new ArrayList<>();
 	
 	public User() {
 	}
@@ -83,5 +91,8 @@ public class User implements Serializable{
 		this.cep = cep;
 	}
 	
+	public List<Order> getOrder(){
+		return order;
+	}
 	
 }
