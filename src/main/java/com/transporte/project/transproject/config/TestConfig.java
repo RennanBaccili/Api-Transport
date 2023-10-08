@@ -7,16 +7,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.transporte.project.transproject.barCode.BufferedImage;
 import com.transporte.project.transproject.control.User;
-import com.transporte.project.transproject.repositories.UserReposiroty;
+import com.transporte.project.transproject.repositories.UserRepository;
 
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner{
 
 	@Autowired			
-	private UserReposiroty userRepository;
+	private UserRepository userRepository;
 
 	
 	@Override
